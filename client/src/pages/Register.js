@@ -11,12 +11,13 @@ const Register = () => {
   const submitHandler = async (values) => {
     try {
       setLoading(true);
-      await axios.post("/api/v1/users/register", values);
-      message.success("Registeration Successfull");
+      await axios.post("/users/register", values);
+      message.success("Registration Successfull");
       setLoading(false);
       navigate("/login");
     } catch (error) {
       setLoading(false);
+      console.log(error)
       message.error("something went wrong");
     }
   };
@@ -47,8 +48,8 @@ const Register = () => {
             <Input type="password" required />
           </Form.Item>
           <div className="d-flex justify-content-between">
-            <Link to="/login">Already Register? login here!</Link>
-            <button className="btn ">Resgiter</button>
+            <Link to="/login">Already Registered? Login here!</Link>
+            <button className="btn ">Register</button>
           </div>
         </Form>
       </div>
