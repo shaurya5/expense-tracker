@@ -1,6 +1,6 @@
 import React from "react";
 import { Progress } from "antd";
-const Analytics = ({ allTransection }) => {
+const Analytics = ({ alltransaction }) => {
   // category
   const categories = [
     "salary",
@@ -15,11 +15,11 @@ const Analytics = ({ allTransection }) => {
   ];
 
   // total transaction
-  const totalTransaction = allTransection.length;
-  const totalIncomeTransactions = allTransection.filter(
+  const totalTransaction = alltransaction.length;
+  const totalIncomeTransactions = alltransaction.filter(
     (transaction) => transaction.type === "income"
   );
-  const totalExpenseTransactions = allTransection.filter(
+  const totalExpenseTransactions = alltransaction.filter(
     (transaction) => transaction.type === "expense"
   );
   const totalIncomePercent =
@@ -28,15 +28,15 @@ const Analytics = ({ allTransection }) => {
     (totalExpenseTransactions.length / totalTransaction) * 100;
 
   //total turnover
-  const totalTurnover = allTransection.reduce(
+  const totalTurnover = alltransaction.reduce(
     (acc, transaction) => acc + transaction.amount,
     0
   );
-  const totalIncomeTurnover = allTransection
+  const totalIncomeTurnover = alltransaction
     .filter((transaction) => transaction.type === "income")
     .reduce((acc, transaction) => acc + transaction.amount, 0);
 
-  const totalExpenseTurnover = allTransection
+  const totalExpenseTurnover = alltransaction
     .filter((transaction) => transaction.type === "expense")
     .reduce((acc, transaction) => acc + transaction.amount, 0);
 
@@ -102,7 +102,7 @@ const Analytics = ({ allTransection }) => {
         <div className="col-md-3">
           <h6 className="bg-dark p-2 text-light">Categorywise Income</h6>
           {categories.map((category) => {
-            const amount = allTransection
+            const amount = alltransaction
               .filter(
                 (transaction) =>
                   transaction.type === "income" &&
@@ -128,7 +128,7 @@ const Analytics = ({ allTransection }) => {
         <div className="col-md-3">
           <h6 className="bg-warning p-2 text-light">Categorywise Expense</h6>
           {categories.map((category) => {
-            const amount = allTransection
+            const amount = alltransaction
               .filter(
                 (transaction) =>
                   transaction.type === "expense" &&
