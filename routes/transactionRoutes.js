@@ -15,7 +15,7 @@ router.post("/add-transaction", addtransaction);
 //Edit transaction POST MEthod
 router.post("/edit-transaction", edittransaction);
 //Delete transaction POST MEthod
-router.post("/delete-transaction", deletetransaction);
+router.delete("/delete-transaction", deletetransaction);
 
 //get transactions
 router.post("/get-transaction", getAlltransaction);

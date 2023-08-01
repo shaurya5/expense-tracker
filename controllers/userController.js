@@ -12,7 +12,7 @@ const loginController = async (req, res, next) => {
     }
     const auth = await bcrypt.compare(password, user.password)
     if(!auth) {
-      return res.json({message: "Incorrect password or email"})
+      return res.status(401).json({message: "Incorrect password or email"})
     }
     const token = createSecretToken(user._id);
     res.cookie("token", token, {
