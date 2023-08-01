@@ -43,7 +43,7 @@ const HomePage = () => {
       dataIndex: "category",
     },
     {
-      title: "Refrence",
+      title: "Reference",
       dataIndex: "refrence",
     },
     {
@@ -114,7 +114,7 @@ const HomePage = () => {
       const user = JSON.parse(localStorage.getItem("user"));
       setLoading(true);
       if (editable) {
-        await axios.post("http://localhost:8080/api/v1/transactions/edit-transaction", {
+        await axios.patch("http://localhost:8080/api/v1/transactions/edit-transaction", {
           payload: {
             ...values,
             userId: user._id,

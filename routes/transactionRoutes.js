@@ -13,7 +13,7 @@ const router = express.Router();
 //add transaction POST MEthod
 router.post("/add-transaction", addtransaction);
 //Edit transaction POST MEthod
-router.post("/edit-transaction", edittransaction);
+router.patch("/edit-transaction", edittransaction);
 //Delete transaction POST MEthod
 router.delete("/delete-transaction", deletetransaction);
 
