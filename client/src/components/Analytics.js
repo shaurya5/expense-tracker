@@ -14,6 +14,9 @@ const Analytics = ({ alltransaction }) => {
     "tax",
   ];
 
+  // TODO (add feature)
+  // manually add categories
+  
   // total transaction
   const totalTransaction = alltransaction.length;
   const totalIncomeTransactions = alltransaction.filter(
