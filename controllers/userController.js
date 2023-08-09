@@ -49,7 +49,7 @@ const registerController = async (req, res, next) => {
     })
     // await newUser.save();
     res.status(201).json({
-      message: "User signed in successfully",
+      message: "User registered successfully",
       success: true,
       user,
     });

@@ -16,7 +16,7 @@ const { RangePicker } = DatePicker;
 const HomePage = () => {
   const [showModal, setShowModal] = useState(false);
   const [loading, setLoading] = useState(false);
-  const [alltransaction, setAlltransaction] = useState([]);
+  const [alltransaction, setAllTransactions] = useState([]);
   const [frequency, setFrequency] = useState("7");
   const [selectedDate, setSelectedate] = useState([]);
   const [type, setType] = useState("all");
@@ -44,7 +44,7 @@ const HomePage = () => {
     },
     {
       title: "Reference",
-      dataIndex: "refrence",
+      dataIndex: "reference",
     },
     {
       title: "Actions",
@@ -81,14 +81,14 @@ const HomePage = () => {
           selectedDate,
           type,
         });
-        setAlltransaction(res.data);
+        setAllTransactions(res.data);
         setLoading(false);
       } catch (error) {
-        message.error("Ftech Issue With Transaction");
+        message.error("Fetch Issue With Transaction");
       }
     };
     getAllTransactions();
-  }, [frequency, selectedDate, type, setAlltransaction]);
+  }, [frequency, selectedDate, type, setAllTransactions]);
 
   //delete handler
   const handleDelete = async (record) => {
@@ -135,7 +135,7 @@ const HomePage = () => {
       setEditable(null);
     } catch (error) {
       setLoading(false);
-      message.error("please fill all fields");
+      message.error("Please fill all fields!");
     }
   };
 
@@ -232,7 +232,7 @@ const HomePage = () => {
           <Form.Item label="Date" name="date">
             <Input type="date" />
           </Form.Item>
-          <Form.Item label="Refrence" name="refrence">
+          <Form.Item label="Reference" name="reference">
             <Input type="text" required />
           </Form.Item>
           <Form.Item label="Description" name="description">
