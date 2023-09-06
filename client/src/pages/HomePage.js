@@ -75,7 +75,7 @@ const HomePage = () => {
       try {
         const user = JSON.parse(localStorage.getItem("user"));
         setLoading(true);
-        const res = await axios.post("http://localhost:8080/api/v1/transactions/get-transaction", {
+        const res = await axios.post("https://expense-tracker-yxuq.onrender.com/api/v1/transactions/get-transaction", {
           userid: user._id,
           frequency,
           selectedDate,
@@ -94,7 +94,7 @@ const HomePage = () => {
   const handleDelete = async (record) => {
     try {
       setLoading(true);
-      await axios.delete("http://localhost:8080/api/v1/transactions/delete-transaction", {
+      await axios.delete("https://expense-tracker-yxuq.onrender.com/api/v1/transactions/delete-transaction", {
         data: {
           transacationId: record._id
         }
@@ -114,7 +114,7 @@ const HomePage = () => {
       const user = JSON.parse(localStorage.getItem("user"));
       setLoading(true);
       if (editable) {
-        await axios.patch("http://localhost:8080/api/v1/transactions/edit-transaction", {
+        await axios.patch("https://expense-tracker-yxuq.onrender.com/api/v1/transactions/edit-transaction", {
           payload: {
             ...values,
             userId: user._id,
@@ -124,7 +124,7 @@ const HomePage = () => {
         setLoading(false);
         message.success("Transaction Updated Successfully");
       } else {
-        await axios.post("http://localhost:8080/api/v1/transactions/add-transaction", {
+        await axios.post("https://expense-tracker-yxuq.onrender.com/api/v1/transactions/add-transaction", {
           ...values,
           userid: user._id,
         });
